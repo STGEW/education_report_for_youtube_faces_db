@@ -66,20 +66,23 @@ Learning parameters are the same:
 - batch_size = 10
 
 Let's first take a look at images where the results look similarly good:
-![image info](./image_009.png)
 
+![image info](./image_009.png)
 ![image info](./image_004.png)
 
 From these 2 images we can see that our CNNs learned something. But let's now check other images where we can see the difference more clearly.
+
 ![image info](./image_001.png)
 ![image info](./image_002.png)
 
 From these two images we can clearly see that magenta points are worse than other points. Which means that 15 epochs is not enough for CNN. Let's exlude it from our consideration
 
 Let's take a closer look at 3 cases - 50, 85, 250
+
 ![image info](./image_003.png)
 ![image info](./image_005.png)
 ![image info](./image_006.png)
+
 
 From what I can see even considering that none of the CNNs match perfectly, the blue one is closer to expected results.
 
@@ -154,6 +157,7 @@ But let's also check test images. Adam is white, SGD - magenta. And again it see
 Again parameters are the same - 85 epochs, but now we compare different criteria MSE vs SmoothL1Loss.
 
 Let's compare loss functions. It seems like smooth L1 gives smaller loss function value, but I don't think it make sense to compare absolute values, because probably the way how it's calculated now is different.
+
 ![image info](./MSE_vs_smoothl1.png)
 
 
@@ -169,6 +173,7 @@ Let's compare test images. MSE - white, SmoothL1 - magenta
 ![image info](./image_508.png)
 ![image info](./image_509.png)
 ![image info](./image_510.png)
+
 
 Considering these images I don't have a strong opinion which criterion is better. It seems like both are doing their job pretty well. Even if each of them does mistakes on different images.
 
@@ -216,9 +221,11 @@ Let's add one more linear layer and check how it goes.
 | Linear | 136 | 1088 * 136 | 1088 * (136 + 1) | 149056 |
 
 Loss functions:
+
 ![image info](./model_004_vs_model_005_loss.png)
 
 The difference between test and train loss functions 
+
 ![image info](./model_004_vs_model_005_loss_diff.png)
 
 Test images:
@@ -232,9 +239,8 @@ Test images:
 The prediction is extremely inaccurate and the results are super strange. It seems like the prediction points are almost identical for different images. I can't explain that.
 
 
-
 ## My mistakes during the whole process.
-1) using ReLu after the last Linear layer
+1) using ReLu after the last Linear layerэпшк/ц
 2) estimating Loss function for each batch, instead of accumulating it for all batches and estimating it for the whole epoch
 
 
