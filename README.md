@@ -240,7 +240,7 @@ The prediction is extremely inaccurate and the results are super strange. It see
 
 
 ## My mistakes during the whole process.
-1) using ReLu after the last Linear layerэпшк/ц
+1) using ReLu after the last Linear layer
 2) estimating Loss function for each batch, instead of accumulating it for all batches and estimating it for the whole epoch
 
 
